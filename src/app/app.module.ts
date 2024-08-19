@@ -3,30 +3,36 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HttpClientModule } from '@angular/common/http';
+import { ComponentsModule } from './shared/components/components.module';
+import { MaterialModule } from './shared/material/material.module';
+import { CatalogosModule } from './modules/catalogos/catalogos.module';
+import { ReportsModule } from './modules/reportes/reportes.module';
+import { SettingModule } from './modules/settings/settings.module';
+import { LayoutComponent } from './layout/layout.component';
+import { LoginComponent } from './login/login.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
-import { ServicesModule } from './services/services.module';
-import { PagesModule } from './pages/pages.module';
-import { InterfacesModule } from './interfaces/interfaces.module';
-import { ComponentsModule } from './components/components.module';
 import { provideAnimationsAsync } from '@angular/platform-browser/animations/async';
-import { MaterialModule } from './Angular_material/material.module';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
     AppComponent,
+    LoginComponent,
+    LayoutComponent,
+    HomeComponent
   ],
   imports: [
-    ServicesModule,
-    PagesModule,
-    InterfacesModule,
-    ComponentsModule,
+    ReportsModule, CatalogosModule, SettingModule,
     MaterialModule,
+    ComponentsModule,
+    HttpClientModule, 
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    ReactiveFormsModule
   ],
-  providers: [
-    provideAnimationsAsync()
-  ],
+  providers: [provideAnimationsAsync()],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

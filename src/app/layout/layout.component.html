@@ -1,0 +1,71 @@
+<mat-toolbar color="primary" class="d-flex justify-content-between">
+  <div class="d-flex justify-content-center align-items-center">
+    <button mat-icon-button style="color: white;" aria-label="Menu icon" matTooltip="Desplegar menu"
+      (click)="toggleMenu()">
+      <mat-icon>menu</mat-icon>
+    </button>
+    <a [routerLink]="['/MyKAutomotriz/Home']">
+      <h1>MYK Automotriz</h1>
+    </a>
+  </div>
+  <button mat-icon-button style="color: white;" aria-label="Menu icon" (click)="logout()" matTooltip="Cerrar sesión">
+    <mat-icon>exit_to_app</mat-icon>
+  </button>
+</mat-toolbar>
+
+<mat-sidenav-container autosize>
+  <mat-sidenav mode="side" opened>
+    <mat-accordion>
+
+      <mat-nav-list>
+        <a mat-list-item routerLinkActive="active"  [routerLink]="['/MyKAutomotriz/Orden']">
+          <span>Orden de servicio</span>
+        </a>
+      </mat-nav-list>
+
+      <mat-expansion-panel (opened)="openModule = true" (closed)="openModule = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Reportes
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item [routerLink]="['/MyKAutomotriz/Reportes/Principal']">
+          <span>Principal</span>
+        </a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="openModule = true" (closed)="openModule = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Catalogos
+          </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item [routerLink]="['/MyKAutomotriz/Catalogos/Clientes']">
+          <span>Clientes</span>
+        </a>
+        <a mat-list-item [routerLink]="['/MyKAutomotriz/Catalogos/Servicios']">
+          <span>Servicios</span>
+        </a>
+        <a mat-list-item [routerLink]="['/MyKAutomotriz/Catalogos/Proveedores']">
+          <span>Provedores</span>
+        </a>
+      </mat-expansion-panel>
+
+      <mat-expansion-panel (opened)="openModule = true" (closed)="openModule = false">
+        <mat-expansion-panel-header>
+          <mat-panel-title> Configuración </mat-panel-title>
+        </mat-expansion-panel-header>
+        <a mat-list-item [routerLink]="['/MyKAutomotriz/Settings/User']">
+          <span>Usuarios</span>
+        </a>
+        <a mat-list-item [routerLink]="['/MyKAutomotriz/Settings/Precios']">
+          <span>Precios</span>
+        </a>
+      </mat-expansion-panel>
+
+    </mat-accordion>
+  </mat-sidenav>
+  <mat-sidenav-content style="background-color: rgba(143, 143, 143, 0.2);">
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

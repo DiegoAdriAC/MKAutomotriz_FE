@@ -1,0 +1,19 @@
+.no-data-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #f5f5f5;
+  padding: 20px;
+  border-radius: 4px;
+  margin-top: 10px;
+
+  mat-icon {
+    margin-right: 8px;
+    color: #757575;
+  }
+
+  span {
+    font-size: 16px;
+    color: #757575;
+  }
+}

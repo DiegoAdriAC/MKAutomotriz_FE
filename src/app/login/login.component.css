@@ -1,0 +1,20 @@
+.bg {
+    background-image: url('../../assets/BackLogin.jpg');
+    /* Cambia esta URL a la imagen que prefieras */
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.card {
+    background-color: rgba(102, 102, 102, 0.75);
+    border: none;
+}
+
+.login-container {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

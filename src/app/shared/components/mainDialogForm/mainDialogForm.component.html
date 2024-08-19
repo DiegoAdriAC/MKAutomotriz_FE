@@ -1,0 +1,30 @@
+<h1 mat-dialog-title>Agregar {{ data.tittle }}</h1>
+<div mat-dialog-content>
+    <form [formGroup]="formGroup">
+        <ng-container class="d-flex f-column">
+            <div *ngFor="let inp of data.form">
+                <ng-container *ngIf="inp.type == 'select' && inp.list; else Normal">
+                    <mat-form-field [formControlName]="inp.key">
+                        <mat-label>{{inp.label}}</mat-label>
+                        <mat-select *ngFor="let item of inp.list">
+                          <mat-option [value]="item.id">{{item.name}}</mat-option>
+                        </mat-select>
+                      </mat-form-field>
+                </ng-container>
+                <ng-template #Normal>
+                    <mat-form-field appearance="fill">
+                        <mat-label>{{ inp.label }}</mat-label>
+                        <input matInput [type]="inp.type" [formControlName]="inp.key">
+                        <mat-error *ngIf="formGroup.get(inp.key)?.invalid">
+                            {{ getErrorMessage(inp.key) }}
+                        </mat-error>
+                    </mat-form-field>
+                </ng-template>
+            </div>
+        </ng-container>
+    </form>
+</div>
+<div mat-dialog-actions class="d-flex justify-content-center">
+    <button mat-button (click)="onNoClick()">Cancelar</button>
+    <button mat-button [disabled]="formGroup.invalid" (click)="onSubmit()">Enviar</button>
+</div>
